@@ -7,7 +7,7 @@
 #----------------------------------------------------------------------
 # 箱庭チームトーナメント
 # トップモジュール
-# $Id: hako-top.cgi,v 1.1 2003/07/02 03:09:49 gaba Exp $
+# $Id: hako-top.cgi,v 1.2 2004/02/18 05:24:25 gaba Exp $
 
 #----------------------------------------------------------------------
 # トップページモード
@@ -104,7 +104,7 @@ if ($sec < 0){
 <!--
 function develope(){
 
-		window.open("", "newWin");
+		//window.open("", "newWin");
 		document.Island.target = "newWin";
 		document.Island.submit();
 

@@ -7,7 +7,7 @@
 #----------------------------------------------------------------------
 # È¢Äí¥Á¡¼¥à¥È¡¼¥Ê¥á¥ó¥È
 # JS³«È¯²èÌÌ¥â¥¸¥å¡¼¥ë
-# $Id: hako-js.cgi,v 1.1 2003/07/02 03:09:49 gaba Exp $
+# $Id: hako-js.cgi,v 1.2 2004/02/18 05:24:25 gaba Exp $
 
 #----------------------------------------------------------------------
 # £Ê£á£ö£á¥¹¥¯¥ê¥×¥È³«È¯²èÌÌ
@@ -111,7 +111,7 @@ function init(){
 	str = plchg();
 	str = "<NOBR><font color=blue>¡Ý¡Ý¡Ý¡Ý Á÷¿®ºÑ¤ß ¡Ý¡Ý¡Ý¡Ý</font></NOBR><br>"+str;
 	disp(str, "#ccffcc");
-
+/*
     if(isIE4){
 	window.document.onmouseup = menuclose;
     } else {
@@ -121,7 +121,7 @@ function init(){
 	    window.document.onmouseup = menuclose;
 	}
     }
-
+*/
 }
 
 function cominput(x, k, z) {
@@ -131,10 +131,7 @@ function cominput(x, k, z) {
 	d = document.myForm.POINTY.options[document.myForm.POINTY.selectedIndex].value;
 	e = document.myForm.AMOUNT.options[document.myForm.AMOUNT.selectedIndex].value;
 	f = document.myForm.TARGETID.options[document.myForm.TARGETID.selectedIndex].value;
-	if(x == 6){
-	    b = k;
-	    menuclose();
-	} 
+	if(x == 6){ b = k; } 
 	if(z) { f = z; }
 	if (x == 1 || x == 6)	{
 		for(i = $HcommandMax - 1; i > a; i--) {
@@ -194,6 +191,7 @@ function cominput(x, k, z) {
 	str = "<NOBR><font color=red><b>¡Ý¡Ý¡Ý¡Ý¡ÝÌ¤Á÷¿®¡Ý¡Ý¡Ý¡Ý¡Ý</b></font></NOBR><br>"+str;
 	disp(str, "white");
 	outp();
+	menuclose();
 	return true;
 }
 
