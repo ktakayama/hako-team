@@ -11,7 +11,7 @@
 #----------------------------------------------------------------------
 # 箱庭チームトーナメント
 # メインスクリプト
-# $Id: hako-main.cgi,v 1.2 2003/07/02 03:15:18 gaba Exp $
+# $Id: hako-main.cgi,v 1.3 2004/06/02 02:04:26 gaba Exp $
 
 require './hako-ini.cgi';
 
@@ -1681,7 +1681,7 @@ small         { font-size: 9pt}
 <SCRIPT Language="JavaScript">
 <!--
 function ShowMsg(n){
-	status = n;
+	window.status = n;
 }
 //-->
 </SCRIPT>
@@ -1690,7 +1690,7 @@ function ShowMsg(n){
 $Body<nobr>
 <A HREF="http://t.pos.to/hako/" target=_blank>箱庭諸島スクリプト配布元</A> / 
 <A HREF="http://appoh.execweb.cx/hakoniwa/" target="_blank">箱庭Javaスクリプト版 配布元</A>
-<A HREF="http://espion.s7.xrea.com/tyotou/" target=_blank>箱庭チームトーナメント 配布元 </A>
+<A HREF="http://espion.just-size.jp/archives/dist_hako/" target=_blank>箱庭チームトーナメント 配布元 </A>
 <BR>
 <IMG SRC="$cleangif" width=0 height=3><BR>
 　　<A HREF="$toppage">トップページ</A> / 

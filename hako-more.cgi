@@ -1,12 +1,12 @@
 #----------------------------------------------------------------------
 # 箱庭チームトーナメント 追加モジュール
-# ドン・ガバチョ：　support@mc.neweb.ne.jp
-# 箱庭緒島 http://espion.s7.xrea.com/tyotou/
+# Kyosuke Takayama (ドン・ガバチョ)：　support@mc.neweb.ne.jp
+# 鷹の島 http://espion.just-size.jp/
 # ご質問は受けつけておりません
 #----------------------------------------------------------------------
 # 箱庭チームトーナメント
 # 追加モジュール
-# $Id: hako-more.cgi,v 1.1 2003/07/02 03:09:49 gaba Exp $
+# $Id: hako-more.cgi,v 1.2 2004/06/02 02:04:26 gaba Exp $
 
 #----------------------------------------------------------------------
 # ログ表示モード
@@ -329,7 +329,7 @@ END
 <SCRIPT language=JavaScript>
 <!--
     function chengeTeamName() {
-	CTNAME = window.open("", 'CTNAME', 'menubar=no,toolbar=no,location=no,directories=no,status=no,scrollbars=no,resizable=no,width=750,height=250');
+	CTNAME = window.open("hako-main.cgi", 'CTNAME', 'menubar=no,toolbar=no,location=no,directories=no,status=no,scrollbars=no,resizable=no,width=750,height=250');
     }
 //-->
 </SCRIPT>

@@ -7,7 +7,7 @@
 #----------------------------------------------------------------------
 # 箱庭チームトーナメント
 # JS開発画面モジュール
-# $Id: hako-js.cgi,v 1.2 2004/02/18 05:24:25 gaba Exp $
+# $Id: hako-js.cgi,v 1.3 2004/06/02 02:04:26 gaba Exp $
 
 #----------------------------------------------------------------------
 # Ｊａｖａスクリプト開発画面
@@ -339,7 +339,7 @@ function set_com(x, y, land) {
 			com_str += " ";
 		}
 	}
-	status = com_str;
+	window.status = com_str;
 	document.myForm.COMSTATUS.value= com_str;
 }
 
@@ -351,14 +351,12 @@ function jump(theForm) {
 
 function openBBS()
 {
-  window.open("", "bbs");
   document.bbsform.target = "bbs";
   document.bbsform.submit();
 }
 
 function openTEAM()
 {
-  window.open("", "camp");
   document.teamform.target = "camp";
   document.teamform.submit();
 }
@@ -843,13 +841,13 @@ sub landStringJava {
 
     if($mode == 1) {
     out(qq#<A HREF="JavaScript:void(0);" onclick="ps($x,$y)" #);
-    out(qq#onMouseOver="set_com($x, $y, '$point $alt'); return true;" onMouseOut="status = '';">#);
+    out(qq#onMouseOver="set_com($x, $y, '$point $alt'); return true;" onMouseOut="window.status = '';">#);
     }elsif($HmainMode eq 'landmap') {
     out(qq#<A HREF="JavaScript:void(0);" onclick="ps($x,$y)" #);
-    out(qq#onMouseOver="status = '$point $alt $comStr'; return true;" onMouseOut="status = '';">#);
+    out(qq#onMouseOver="window.status = '$point $alt $comStr'; return true;" onMouseOut="window.status = '';">#);
 	}else{
     out(qq#<A HREF="JavaScript:void(0);" #);
-    out(qq#onMouseOver="status = '$point $alt $comStr'; return true;" onMouseOut="status = '';">#);
+    out(qq#onMouseOver="window.status = '$point $alt $comStr'; return true;" onMouseOut="window.status = '';">#);
 	}
     out("<IMG SRC=\"$image\" ALT=\"$point $alt $comStr\" TITLE=\"$point $alt $comStr\" width=32 height=32 BORDER=0></A>");
 }
@@ -934,7 +932,7 @@ function cominput(kind) {
 }
 
 function ShowMsg(n){
-	status = n;
+	window.status = n;
 }
 //-->
 </SCRIPT>
