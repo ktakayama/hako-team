@@ -11,7 +11,7 @@
 #----------------------------------------------------------------------
 # 箱庭チームトーナメント
 # メインスクリプト
-# $Id: hako-main.cgi,v 1.1 2003/07/02 03:09:49 gaba Exp $
+# $Id: hako-main.cgi,v 1.2 2003/07/02 03:15:18 gaba Exp $
 
 require './hako-ini.cgi';
 
@@ -1078,7 +1078,7 @@ sub cgiInput {
 	$HmainMode = 'new';
     } elsif($getLine =~ /LogFileView=([0-9]*)/) {
 	$HmainMode = 'logView';
-	$Hlogturn = $1;
+	$Hlogturn = ($1 > $HlogMax) ? $HlogMax : $1;
     } elsif($getLine =~ /LogFileTeam=([0-9]*)/) {
 	$HmainMode = 'logTeam';
 	$HlogteamID = $1;
