@@ -7,7 +7,7 @@
 #----------------------------------------------------------------------
 # 箱庭チームトーナメント
 # ターン進行モジュール
-# $Id: hako-turn.cgi,v 1.2 2004/02/18 05:24:25 gaba Exp $
+# $Id: hako-turn.cgi,v 1.3 2004/02/18 05:35:38 gaba Exp $
 
 #周囲2ヘックスの座標
 my(@ax) = (0, 1, 1, 1, 0,-1, 0, 1, 2, 2, 2, 1, 0,-1,-1,-2,-1,-1, 0);
@@ -161,7 +161,7 @@ sub makeNewLand {
 	}
 
 	# 中央の4*4に荒地を配置
-	my($center) = $HislandSize / 2 - 1;
+	my($center) = int($HislandSize / 2 - 1);
 	for($y = $center - 1; $y < $center + 3; $y++) {
 		 for($x = $center - 1; $x < $center + 3; $x++) {
 			 $land[$x][$y] = $HlandWaste;
