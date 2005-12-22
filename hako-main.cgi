@@ -11,7 +11,7 @@
 #----------------------------------------------------------------------
 # 箱庭チームトーナメント
 # メインスクリプト
-# $Id: hako-main.cgi,v 1.3 2004/06/02 02:04:26 gaba Exp $
+# $Id$
 
 require './hako-ini.cgi';
 
@@ -985,11 +985,11 @@ sub cgiInput {
     # パスワード
     if($line =~ /OLDPASS=([^\&]*)\&/) {
 	$HoldPassword = $1;
-	$HdefaultPassword = $1;
+	$HdefaultPassword = htmlEscape(cutColumn($1,32));
     }
     if($line =~ /PASSWORD=([^\&]*)\&/) {
 	$HinputPassword = $1;
-	$HdefaultPassword = $1;
+	$HdefaultPassword = htmlEscape(cutColumn($1,32));
     }
     if($line =~ /PASSWORD2=([^\&]*)\&/) {
 	$HinputPassword2 = $1;
@@ -1013,7 +1013,7 @@ sub cgiInput {
     # ローカル掲示板
     if($line =~ /LBBSNAME=([^\&]*)\&/) {
 	$HlbbsName = $1;
-	$HdefaultName = $1;
+	$HdefaultName = htmlEscape(cutColumn($1,32));
     }
     if($line =~ /LBBSMESSAGE=([^\&]*)\&/) {
 	$HlbbsMessage = cutColumn($1, 80);
@@ -1025,14 +1025,14 @@ sub cgiInput {
 
     if($line =~ /IMGLINEMAC=([^&]*)\&/){
 	my($flag) = 'file:///' . $1;
-	$HimgLine = $flag;
+	$HimgLine = htmlEscape($flag);
     }
 
     if($line =~ /IMGLINE=([^&]*)\&/){
 	my($flag) = substr($1, 0 , -10);
 	$flag =~ tr/\\/\//;
 	if($flag eq 'del'){ $flag = $imageDir; } else { $flag = 'file:///' . $flag; }
-	$HimgLine = $flag;
+	$HimgLine = htmlEscape($flag);
     }
 
     if($line =~ /CTEAMNAME=([^\&]*)\&/){
@@ -1143,7 +1143,7 @@ sub cgiInput {
 sub cookieInput {
     my($cookie);
 
-    $cookie = jcode::euc($ENV{'HTTP_COOKIE'});
+    $cookie = htmlEscape(jcode::euc($ENV{'HTTP_COOKIE'}));
 
     if($cookie =~ /${HthisFile}OWNISLANDID=\(([^\)]*)\)/) {
 	$defaultID = $1;
@@ -1430,6 +1430,8 @@ sub htmlEscape {
     $s =~ s/</&lt;/g;
     $s =~ s/>/&gt;/g;
     $s =~ s/\"/&quot;/g; #"
+    $s =~ s/'/&#39;/g;
+    $s =~ s/ /&#32;/g;
     return $s;
 }
 
